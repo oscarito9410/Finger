@@ -1,0 +1,1 @@
+include ':app', ':neurotec-biometrics-gui-android', ':neurotec-licensing-gui-android'

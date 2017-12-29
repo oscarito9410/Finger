@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId 'com.na_at.finger'
+        minSdkVersion 19
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled false
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    dexOptions {
+        jumboMode true
+        javaMaxHeapSize "4g"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'package-tree.html'
+    }
+    productFlavors {
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['.jar', '.so'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.mattprecious.swirl:swirl:1.0.0'
+    compile 'org.projectlombok:lombok:1.16.18'
+    annotationProcessor "org.projectlombok:lombok:1.16.18"
+    compileOnly 'javax.annotation:javax.annotation-api:1.3.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation "com.jakewharton:butterknife:${rootProject.ext.butterknifeVersion}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.butterknifeVersion}"
+    implementation project(':neurotec-licensing-gui-android')
+    implementation project(':neurotec-biometrics-gui-android')
+    implementation files('libs/neurotec-core-android.jar')
+    implementation files('libs/neurotec-biometrics-client-android.jar')
+    implementation files('libs/neurotec-biometrics-gui-android.jar')
+    implementation files('libs/neurotec-devices-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-aratek-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-bluefin-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-digitalpersona-uareu-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-futronic-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-futronic-bluetooth-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-integratedbiometrics-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-miaxis-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-nextbiometrics-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-nitgen-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-secugen-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-smufsbio-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-startek-android.jar')
+    implementation files('libs/neurotec-devices-fscanners-suprema-biomini-android.jar')
+    implementation files('libs/neurotec-devices-media-android.jar')
+    implementation files('libs/neurotec-devices-multimodal-credenceid-android.jar')
+    implementation files('libs/neurotec-devices-virtual-android.jar')
+    implementation files('libs/neurotec-gui-android.jar')
+    implementation files('libs/neurotec-licensing-android.jar')
+    implementation files('libs/neurotec-media-android.jar')
+    implementation files('libs/neurotec-media-processing-android.jar')
+    implementation files('libs/neurotec-biometrics-android.jar')
+    implementation files('libs/acra.jar')
+    implementation files('libs/acssmc.jar')
+    implementation files('libs/jna.jar')
+    implementation files('libs/neurotec-cluster-android.jar')
+    implementation files('libs/neurotec-devices-irisscanners-iritech-irishield-android.jar')
+    implementation files('libs/neurotec-face-verification-android.jar')
+    implementation files('libs/neurotec-face-verification-gui-android.jar')
+}
