@@ -18,6 +18,7 @@ public class ApplicationBase extends android.app.Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        initApplication();
         try {
             System.setProperty("jna.nounpack", "true");
             System.setProperty("java.io.tmpdir", getCacheDir().getAbsolutePath());

@@ -2,5 +2,5 @@
     <string name="app_name">Finger</string>
     <string name="license_obtained">Licencia obtenida</string>
     <string name="license_not_obtained">Error al obtener la licencia</string>
-    <string name="obtaining_license">Obtiendo licencia</string>
+    <string name="obtaining_license">Obteniendo licencia</string>
 </resources>

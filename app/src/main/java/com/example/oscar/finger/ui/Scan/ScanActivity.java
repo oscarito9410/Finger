@@ -31,10 +31,11 @@ public class ScanActivity extends AppCompatActivity  implements ScanPresenterImp
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
-        NCore.setContext(this);
-        ButterKnife.bind(this);
-        swirlView.setState(SwirlView.State.ON);
+        setListeners();
+        setPresenter();
     }
+
+
 
 
     @Override
@@ -62,14 +63,19 @@ public class ScanActivity extends AppCompatActivity  implements ScanPresenterImp
 
     @Override
     public void setPresenter() {
-        this.presenter=new ScanPresenterImpl(this);
-        this.presenter.getLicenseAsync();
+        if(this.presenter==null) {
+            this.presenter = new ScanPresenterImpl(this);
+            this.presenter.getLicenseAsync();
+        }
     }
 
     @Override
     public void setListeners() {
+        NCore.setContext(this);
         this.dialog=new ProgressDialog(this);
-        this.dialog.setTitle(getString(R.string.obtaining_license));
+        this.dialog.setMessage(getString(R.string.obtaining_license));
+        ButterKnife.bind(this);
+        swirlView.setState(SwirlView.State.ON);
     }
 
     @Override

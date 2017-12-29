@@ -1,21 +1,14 @@
 package com.example.oscar.finger.ui.Scan.Presenter;
-
 import android.support.annotation.StringRes;
-import android.widget.Toast;
-
 import com.example.oscar.finger.ApplicationBase;
 import com.example.oscar.finger.R;
 import com.example.oscar.finger.Utils.Licensing.LicensingManager;
 import com.example.oscar.finger.Utils.Licensing.LicensingStateResult;
 import com.example.oscar.finger.base.BaseViewContract;
-import com.mattprecious.swirl.SwirlView;
-import com.neurotec.biometrics.NFinger;
-import com.neurotec.biometrics.NSubject;
 import com.neurotec.biometrics.client.NBiometricClient;
 import com.neurotec.cluster.NCluster;
 import com.neurotec.devices.NDeviceManager;
 import com.neurotec.devices.NDeviceType;
-
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.List;
@@ -52,8 +45,9 @@ public class ScanPresenterImpl implements ScanContract, LicensingManager.Licensi
         mBiometricClient.initialize();
         NDeviceManager.DeviceCollection devices = deviceManager.getDevices();
         if (devices.size() > 0) {
+            view.onScannerResult(false);
         } else {
-
+                view.onScannerResult(true);
         }
     }
 
